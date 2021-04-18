@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "pdn-monitoring"
+version = "0.1.0"
+description = "Tool for monitoring assets in a power distribution network"
+authors = ["Carl Mattsson <carl.mattsson@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "3.8"
+numpy = "^1.20.2"
+pandas = "^1.2.4"
+scikit-learn = "^0.24.1"
+scipy = "^1.6.2"
+
+[tool.poetry.dev-dependencies]
+jupyterlab = "^3.0.14"
+matplotlib = "^3.4.1"
+pyarrow = "^3.0.0"
+seaborn = "^0.11.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
