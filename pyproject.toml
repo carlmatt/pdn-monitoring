@@ -5,7 +5,7 @@ description = "Tool for monitoring assets in a power distribution network"
 authors = ["Carl Mattsson <carl.mattsson@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "3.8"
+python = "^3.7"
 numpy = "^1.20.2"
 pandas = "^1.2.4"
 scikit-learn = "^0.24.1"
