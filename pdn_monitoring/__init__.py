@@ -23,7 +23,7 @@ class PdnMonitor:
     def load_model(self, model_id: int = 1):
         """ Load a classification model (ordered from best to worst performing during modeling):
         1. Random forest
-        2. Support vector
+        2. Support vector machine
         3. Logistic regression
         4. Gradient boosting
 
