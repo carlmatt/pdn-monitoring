@@ -1,8 +1,8 @@
 import datetime
-import joblib
 import pathlib
 from typing import Union
 
+import joblib
 import numpy as np
 from scipy.fft import fft
 
@@ -10,10 +10,10 @@ PATH = pathlib.Path(__file__).parent
 
 
 class PdnMonitor:
-    """ This object is used to monitor assets in a power distribution network
+    """ Tool for monitoring assets in a power distribution network
 
     A random forest model is used as the classifier by default. The model can be changed with the
-    load_model function.
+    load_model function. The predict function outputs a prediction of the current state of the asset.
     """
     def __init__(self):
         self.timestamp = datetime.datetime.utcnow().isoformat()
@@ -31,7 +31,7 @@ class PdnMonitor:
         """
         if not isinstance(model_id, int):
             raise TypeError('The model ID must be an integer.')
-        elif model_id == 1:
+        if model_id == 1:
             self.classification_model = joblib.load(f'{PATH}/models/random_forest_2021_04_19.joblib')
         elif model_id == 2:
             self.classification_model = joblib.load(f'{PATH}/models/support_vector_2021_04_19.joblib')
@@ -58,8 +58,8 @@ class PdnMonitor:
             voltage = [float(i) for i in data[:500]]
             current = [float(i) for i in data[500:1000]]
             sensor = float(data[1000])
-        except ValueError:
-            raise ValueError('The voltage, current and sensor data must be numerical.')
+        except ValueError as error:
+            raise ValueError('The voltage, current and sensor data must be numerical.') from error
 
         voltage_ft = np.real(fft(voltage))[2:3]
         current_ft = np.real(fft(current))[1:3]
