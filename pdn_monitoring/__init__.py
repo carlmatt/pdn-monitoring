@@ -45,6 +45,7 @@ class PdnMonitor:
     @staticmethod
     def preprocess_data(data: Union[list, np.array]) -> np.array:
         """ Preprocess the data for the model
+        The input data should be a list of length 1008, or a numpy array of shape (1008,).
 
         :param data: Model input data
         :return: Preprocessed data
@@ -68,8 +69,9 @@ class PdnMonitor:
 
         return array
 
-    def predict(self, input_data: list) -> int:
+    def predict(self, input_data: Union[list, np.array]) -> int:
         """ Predict the state of the asset
+        The input data should be a list of length 1008, or a numpy array of shape (1008,).
 
         :param input_data: Input data used for predicting the state
         :return: Predicted state of the asset

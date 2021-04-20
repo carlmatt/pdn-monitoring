@@ -62,6 +62,15 @@ with open('pdn_monitoring/test/test_data/test_case_1.csv', newline='') as f:
 monitor.predict(test_data)
 ```
 
+If you use your own data, the data should match the training data but should not include a label. It should consist of
+the following (in the correct order):
+
+1. One full 50 Hz cycle (500 samples) of the voltage measured on the asset
+2. One full 50 Hz cycle (500 samples) of the current measured on the asset
+3. Six readings taken from the six additional sensors
+4. Timestamp of recording
+5. ID of the device that captured the recording
+
 The tool uses a random forest classifier model by default. You can change the model using the `load_model` function. The
 supported models are
 
