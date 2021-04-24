@@ -26,7 +26,17 @@ poetry install --no-dev
 
 ## Running the unit tests
 
-Before running the unit tests, please ensure that your machine meets the requirements above. The unit tests can be run
+### Using Docker
+
+Requires GNU Make and Docker. To run the unit tests using Docker, simply run
+
+```shell
+make run-test
+```
+
+### Locally
+
+Before running the unit tests locally, please ensure that your machine meets the requirements mentioned in the _Requirements_ section. The unit tests can be run
 with
 
 ```shell

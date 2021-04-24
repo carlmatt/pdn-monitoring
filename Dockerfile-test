@@ -1,0 +1,10 @@
+FROM python:3.9
+
+WORKDIR /app
+
+COPY . .
+
+RUN pip3 install --upgrade pip && pip3 install poetry==1.1.6 && poetry install
+RUN poetry config virtualenvs.create false --local
+
+CMD ["poetry", "run", "pytest"]
